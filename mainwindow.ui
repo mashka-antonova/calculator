@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>578</width>
+    <height>660</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* Основной фон - Глубокий темный графит (#222223) */
+QWidget#centralwidget {
+    background-color: #121213;
+}
+
+/* Экран - Эффект чистого матового стекла с кремовым текстом */
+QLineEdit#display {
+    background-color: rgba(255, 254, 236, 0.05); /* Прозрачный крем */
+    border: 1px solid rgba(255, 254, 236, 0.15);
+    border-radius: 12px;
+    color: #FFFEEC; /* Светлый крем из палитры */
+    font-family: &quot;Segoe UI Light&quot;, sans-serif;
+    font-size: 38px;
+    padding: 10px;
+}
+
+/* Общий стиль для кнопок цифр */
+QPushButton {
+    background-color: rgba(255, 254, 236, 0.03);
+    border: 1px solid rgba(255, 254, 236, 0.08);
+    border-radius: 10px;
+    color: #FFFEEC;
+    font-family: &quot;Segoe UI Semibold&quot;;
+    font-size: 16px;
+    padding: 8px;
+}
+
+/* Эффект наведения - Яркое лавандовое свечение */
+QPushButton:hover {
+    background-color: rgba(188, 180, 255, 0.2); /* Сделали ярче */
+    border: 1px solid rgba(188, 180, 255, 0.5); /* Рамка стала отчетливее */
+    color: #BCB4FF;
+}
+
+/* Эффект нажатия */
+QPushButton:pressed {
+    background-color: #0A0A0A;
+}
+
+/* --- ОПЕРАТОРЫ (+ - * /) --- 
+Яркий лавандовый акцент (#BCB4FF) */
+QPushButton[text=&quot;+&quot;], QPushButton[text=&quot;-&quot;], 
+QPushButton[text=&quot;*&quot;], QPushButton[text=&quot;/&quot;] {
+    color: #BCB4FF;
+    background-color: rgba(188, 180, 255, 0.15); /* Фон стал плотнее */
+    border: 1px solid rgba(188, 180, 255, 0.4); /* Контур стал ярче */
+    font-weight: bold;
+    font-size: 20px;
+}
+QPushButton[text=&quot;+&quot;]:hover, QPushButton[text=&quot;-&quot;]:hover, 
+QPushButton[text=&quot;*&quot;]:hover, QPushButton[text=&quot;/&quot;]:hover {
+    background-color: rgba(188, 180, 255, 0.25);
+}
+
+/* --- КНОПКА РАВНО --- 
+Главный неоновый акцент - Горчичный (#CAC426) */
+QPushButton[text=&quot;=&quot;] {
+    background-color: #CAC426;
+    color: #222223; /* Темный текст для максимального контраста */
+    border: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+QPushButton[text=&quot;=&quot;]:hover {
+    background-color: #DED94C; /* Чуть светлее при наведении */
+}
+
+/* --- УДАЛЕНИЕ И ОЧИСТКА (C, Del) --- */
+QPushButton[text=&quot;C&quot;], QPushButton[text=&quot;⌫&quot;], QPushButton[text=&quot;Del&quot;] {
+    color: #CAC426;
+    border: 1px solid rgba(202, 196, 38, 0.4);
+}
+QPushButton[text=&quot;C&quot;]:hover, QPushButton[text=&quot;⌫&quot;]:hover, QPushButton[text=&quot;Del&quot;]:hover {
+    background-color: rgba(202, 196, 38, 0.1);
+}
+
+/* --- НАУЧНЫЕ ФУНКЦИИ И ПАМЯТЬ --- 
+Яркий лавандовый текст, чтобы не терялись на фоне */
+QPushButton[text=&quot;sin&quot;], QPushButton[text=&quot;cos&quot;], QPushButton[text=&quot;tg&quot;], 
+QPushButton[text=&quot;ctg&quot;], QPushButton[text=&quot;sqrt&quot;], QPushButton[text=&quot;1/x&quot;],
+QPushButton[text=&quot;(&quot;], QPushButton[text=&quot;)&quot;],
+QPushButton[text=&quot;M+&quot;], QPushButton[text=&quot;M-&quot;], QPushButton[text=&quot;MR&quot;], QPushButton[text=&quot;MC&quot;],
+QPushButton[text=&quot;⮌&quot;], QPushButton[text=&quot;⮎&quot;], QPushButton[text=&quot;Undo&quot;], QPushButton[text=&quot;Redo&quot;] {
+    color: rgba(188, 180, 255, 0.9); /* Почти 100% яркость текста */
+    background-color: rgba(188, 180, 255, 0.05); /* Легчайшая заливка */
+    border: 1px solid rgba(188, 180, 255, 0.15);
+    font-size: 13px;
+}
+QPushButton[text=&quot;sin&quot;]:hover, QPushButton[text=&quot;cos&quot;]:hover, QPushButton[text=&quot;tg&quot;]:hover, 
+QPushButton[text=&quot;ctg&quot;]:hover, QPushButton[text=&quot;sqrt&quot;]:hover, QPushButton[text=&quot;1/x&quot;]:hover,
+QPushButton[text=&quot;(&quot;]:hover, QPushButton[text=&quot;)&quot;]:hover,
+QPushButton[text=&quot;M+&quot;]:hover, QPushButton[text=&quot;M-&quot;]:hover, QPushButton[text=&quot;MR&quot;]:hover, QPushButton[text=&quot;MC&quot;]:hover,
+QPushButton[text=&quot;⮌&quot;]:hover, QPushButton[text=&quot;⮎&quot;]:hover, QPushButton[text=&quot;Undo&quot;]:hover, QPushButton[text=&quot;Redo&quot;]:hover {
+    background-color: rgba(188, 180, 255, 0.15);
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout" stretch="1,0,0,0,0,0,0,0,0">
+    <item>
+     <widget class="QLineEdit" name="display">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>60</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Segoe UI Light</family>
+        <pointsize>-1</pointsize>
+       </font>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QPushButton" name="btnSin">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>sin</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCos">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>cos</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnTg">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>tg</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnCtg">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>ctg</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnSqrt">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>sqrt</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnRecip">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>1/x</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QPushButton" name="btnOpen">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>(</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnClose">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>)</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_9">
+      <item>
+       <widget class="QPushButton" name="btnUndo">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>⮌</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMPlus">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>M+</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMMinus">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>M-</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMR">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>MR</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMC">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>MC</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <item>
+       <widget class="QPushButton" name="btnClear">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnEqual">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="cursor">
+         <cursorShape>ArrowCursor</cursorShape>
+        </property>
+        <property name="text">
+         <string>=</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QPushButton" name="btn7">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>7</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn8">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>8</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn9">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>9</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDiv">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>/</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QPushButton" name="btn4">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>4</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn5">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>5</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn6">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>6</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMult">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>*</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QPushButton" name="btn1">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn2">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>2</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn3">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>3</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnMinus">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>-</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QPushButton" name="btnDel">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>⌫</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btn0">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnDot">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="btnPlus">
+        <property name="font">
+         <font>
+          <family>Segoe UI Semibold</family>
+          <pointsize>-1</pointsize>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>+</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>578</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
